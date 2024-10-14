@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "ead0c04d-61bc-4fb3-bb47-f1a535bd30b6",
+		"name": "Notificações",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33405790"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Autenticação",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7114/api/Auth/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7114",
+							"path": [
+								"api",
+								"Auth",
+								"login"
+							]
+						},
+						"description": "Endpoint para autenticar o usuario gerando uma chave token que devem ser utilizadas nos proximos endpoints\n\nFaça uma requisição POST para [https://localhost](https://localhost):/api/auth/login.\n\nCopie o token JWT da resposta"
+					},
+					"response": []
+				}
+			],
+			"description": "Autenticação de usuario gerando um token que deve ser utilizado para as proximas autorizações serem utilizadas."
+		},
+		{
+			"name": "Notificações",
+			"item": [
+				{
+					"name": "Enviar notificação",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InVzZXJfaWQiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcm5hbWUiLCJleHAiOjE3MTk0NTEwMjl9.7ZfwvUdLtzqdJTtEBiDUbp_usAOtbU2W2IJjt7A8Esg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": \"Notificação de Teste\",\r\n  \"mensagem\": \"Esta é uma mensagem de teste\",\r\n  \"dataEnvio\": \"2024-06-27T00:08:32.883Z\",\r\n  \"enviada\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7114/api/notificacoes",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7114",
+							"path": [
+								"api",
+								"notificacoes"
+							]
+						},
+						"description": "Faça uma requisição POST para [https://localhost](https://localhost):/api/notificacoes  \nAdicione o cabeçalho Authorization com o valor do Bearer\n\nNo corpo da requisição, adicione os dados da notificação:  \n{  \n\"titulo\": \"Notificação de Teste\",  \n\"mensagem\": \"Esta é uma mensagem de teste\",  \n\"dataEnvio\": \"2024-06-27T00:08:32.883Z\",  \n\"enviada\": true  \n}"
+					},
+					"response": []
+				},
+				{
+					"name": "Obter notificações",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InVzZXJfaWQiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcm5hbWUiLCJleHAiOjE3MTk0NTEwMjl9.7ZfwvUdLtzqdJTtEBiDUbp_usAOtbU2W2IJjt7A8Esg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7114/api/notificacoes",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7114",
+							"path": [
+								"api",
+								"notificacoes"
+							]
+						},
+						"description": "Faça uma requisição GET para [https://localhost](https://localhost):/api/notificacoes.  \nAdicione o cabeçalho Authorization com o valor do Bearer"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar notificação",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InVzZXJfaWQiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcm5hbWUiLCJleHAiOjE3MTk0NTEwMjl9.7ZfwvUdLtzqdJTtEBiDUbp_usAOtbU2W2IJjt7A8Esg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"titulo\": \"Novo Titulo\",\r\n  \"mensagem\": \"Nova Mensagem\",\r\n  \"dataEnvio\": \"2024-06-27T00:08:32.883Z\",\r\n  \"enviada\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7114/api/notificacoes/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7114",
+							"path": [
+								"api",
+								"notificacoes",
+								"1"
+							]
+						},
+						"description": "Atualizar Notificação:\n\nFaça uma requisição PUT para [https://localhost](https://localhost):/api/notificacoes/{id}.  \nAdicione o cabeçalho Authorization com o valor Bearer .\n\nNo corpo da requisição, adicione os dados atualizados da notificação.  \n{\n\n\"id\": 1,  \n\"titulo\": \"Atualizando mensagem\",  \n\"mensagem\": \"Esta é uma mensagem de teste\",  \n\"dataEnvio\": \"2024-06-27T00:08:32.883Z\",  \n\"enviada\": true  \n}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete notificacoes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InVzZXJfaWQiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcm5hbWUiLCJleHAiOjE3MTk0NTEwMjl9.7ZfwvUdLtzqdJTtEBiDUbp_usAOtbU2W2IJjt7A8Esg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7114/api/notificacoes/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7114",
+							"path": [
+								"api",
+								"notificacoes",
+								"1"
+							]
+						},
+						"description": "Faça uma requisição DELETE para [https://localhost](https://localhost):/api/notificacoes/{id}.  \nAdicione o cabeçalho Authorization com o valor Bearer ."
+					},
+					"response": []
+				}
+			],
+			"description": "Aqui é o folder de notificações onde tem todos os endpoints CRUD"
+		}
+	]
+}
