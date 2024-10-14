@@ -1,0 +1,43 @@
+name: CI/CD Pipeline para Gestão de Resíduos
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v2
+
+      - name: Instalar .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: Restaurar Dependências
+        run: dotnet restore
+
+      - name: Compilar o Projeto
+        run: dotnet build --configuration Release
+
+      - name: Executar Testes
+        run: dotnet test --no-build --verbosity normal
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v2
+
+      - name: Fazer Deploy para Staging (Simulado)
+        run: echo "Deploy para ambiente de staging realizado com sucesso."

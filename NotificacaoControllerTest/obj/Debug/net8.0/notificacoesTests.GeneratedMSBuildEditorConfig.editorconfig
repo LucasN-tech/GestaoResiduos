@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = notificacoesTests
-build_property.ProjectDir = C:\Users\LucasNóbregadeJesus\Downloads\GestaoResiduos\NotificacaoControllerTest\
+build_property.ProjectDir = D:\GestaoResiduos\NotificacaoControllerTest\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

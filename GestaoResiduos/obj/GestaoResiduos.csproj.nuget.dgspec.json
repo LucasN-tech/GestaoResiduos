@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LucasNóbregadeJesus\\Downloads\\GestaoResiduos\\GestaoResiduos\\GestaoResiduos.csproj": {}
+    "D:\\GestaoResiduos\\GestaoResiduos\\GestaoResiduos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LucasNóbregadeJesus\\Downloads\\GestaoResiduos\\GestaoResiduos\\GestaoResiduos.csproj": {
+    "D:\\GestaoResiduos\\GestaoResiduos\\GestaoResiduos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LucasNóbregadeJesus\\Downloads\\GestaoResiduos\\GestaoResiduos\\GestaoResiduos.csproj",
+        "projectUniqueName": "D:\\GestaoResiduos\\GestaoResiduos\\GestaoResiduos.csproj",
         "projectName": "GestaoResiduos",
-        "projectPath": "C:\\Users\\LucasNóbregadeJesus\\Downloads\\GestaoResiduos\\GestaoResiduos\\GestaoResiduos.csproj",
-        "packagesPath": "C:\\Users\\LucasNóbregadeJesus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LucasNóbregadeJesus\\Downloads\\GestaoResiduos\\GestaoResiduos\\obj\\",
+        "projectPath": "D:\\GestaoResiduos\\GestaoResiduos\\GestaoResiduos.csproj",
+        "packagesPath": "C:\\Users\\lucas\\.nuget\\packages\\",
+        "outputPath": "D:\\GestaoResiduos\\GestaoResiduos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\LucasNóbregadeJesus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -116,7 +116,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
