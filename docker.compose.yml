@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  api:
+    image: gestao-residuos-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      JwtConfig__Secret: SuaChaveSecretaMuitoSeguraDe32CaracteresOuMais
+
+volumes:
+  mssql_data:
