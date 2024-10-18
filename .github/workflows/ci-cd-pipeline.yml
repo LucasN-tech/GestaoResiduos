@@ -1,44 +1,54 @@
-name: CI/CD Pipeline
+name: Build, Test and Push Docker Image
 
 on:
   push:
     branches:
-      - master
-  pull_request:
-    branches:
-      - master
+      - main  # Roda o pipeline sempre que houver push na branch "main"
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: Set up .NET
-      uses: actions/setup-dotnet@v1
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up .NET Core
+      uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '6.x'
+        dotnet-version: '8.0.x'  # Versão do .NET Core que você está utilizando
 
     - name: Restore dependencies
       run: dotnet restore
 
-    - name: Build
+    - name: Build the application
       run: dotnet build --configuration Release --no-restore
 
-    - name: Run tests
+    - name: Run unit tests
       run: dotnet test --no-restore --verbosity normal
 
-  deploy-staging:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - name: Deploy to Staging
-      run: echo "Deploy para o ambiente de staging"
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
 
-  deploy-prod:
-    needs: deploy-staging
-    runs-on: ubuntu-latest
-    steps:
-    - name: Deploy to Production
-      run: echo "Deploy para o ambiente de produção"
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: true
+        tags: |
+          gestaoresiduos:latest
+          gestaoresiduos:${{ github.sha }}
+        cache-from: type=registry,ref=gestaoresiduos:build-cache
+        cache-to: type=registry,ref=gestaoresiduos:build-cache,mode=max
+
+    - name: Run Docker Compose
+      run: docker-compose up --build -d
+
+    - name: Verify Docker Compose Services
+      run: docker-compose ps
