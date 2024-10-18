@@ -3,7 +3,7 @@ name: Build, Test and Push Docker Image
 on:
   push:
     branches:
-      - main  # Roda o pipeline sempre que houver push na branch "main"
+      - main
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
     - name: Set up .NET Core
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '8.0.x'  # Versão do .NET Core que você está utilizando
+        dotnet-version: '8.0.x' 
 
     - name: Restore dependencies
       run: dotnet restore
@@ -38,9 +38,7 @@ jobs:
         tags: |
           gestaoresiduos:latest
           gestaoresiduos:${{ github.sha }}
-        cache-from: type=local
-        cache-to: type=local,mode=max
-
+        load: true 
     - name: Run Docker Compose
       run: docker-compose up --build -d
 
